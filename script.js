@@ -40,7 +40,7 @@ async function captureAndSend() {
   ctx.drawImage(video, 0, 0);
   const base64Image = canvas.toDataURL('image/png');
 
-  const response = await fetch('http://103.76.120.125:5000/process-face', {
+  const response = await fetch('https://malasngoding.uno/process-face', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ image: base64Image })
