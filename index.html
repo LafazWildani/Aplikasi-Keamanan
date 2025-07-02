@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tes Kamera</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Popup Box -->
+<div id="popupBox" class="popup">
+  <div class="popup-content">
+    <h2>SELAMAT DATANG</h2>
+    <h3>PERHATIAN!</h3>
+    <ul>
+      <li>Sistem ini secara otomatis akan mengambil screenshot dari kamera setiap 15 detik, jika wajah terdeteksi.</li>
+      <li>Klik tombol <b>Start</b> untuk memulai dan <b>Stop</b> untuk menghentikan proses.</li>
+      <li>Pastikan kamu <b>mengizinkan akses kamera dan download multiple files</b> saat diminta browser.</li>
+      <li>Sebaiknya <b>minimize</b> halaman ini jika ingin ditinggal agar tampilan video kamera tidak terlihat mencolok.</li>
+      <li>Gambar akan terunduh otomatis ke folder <b>Downloads</b> laptop Anda.</li>
+      <li>Jika penyimpanan laptop hampir penuh, disarankan untuk mengosongkan sebagian ruang terlebih dahulu.</li>
+      <li>Sistem ini <b>disarankan untuk penggunaan jangka pendek</b>, seperti saat kamu ingin meninggalkan laptop sebentar.</li>
+      <li>Jika ada orang menanyakan kenapa kameranya menyala, cukup jawab lagi ngetes kamera.</li>
+      <li><b>Jangan meninggalkan laptop sendirian di tempat umum tanpa pengawasan untuk menghindari risiko pencurian!.</b></li>
+    </ul>
+    <button onclick="closePopup()">Saya Mengerti</button>
+  </div>
+</div>
+
+  <h1>Lagi Ngetes Kamera</h1>
+  <video id="webcam" autoplay playsinline width="640" height="480"></video>
+  <div class="buttons">
+    <button id="startBtn">Start</button>
+    <button id="stopBtn">Stop</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
