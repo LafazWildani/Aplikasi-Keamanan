@@ -34,12 +34,6 @@ stopBtn.addEventListener('click', () => {
 });
 
 async function captureAndSend() {
-  // Pastikan kamera sudah siap
-  if (video.videoWidth === 0 || video.videoHeight === 0) {
-    console.warn("Kamera belum siap, menunggu...");
-    return;
-  }
-
   const canvas = document.createElement('canvas');
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
