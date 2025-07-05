@@ -1,6 +1,7 @@
 const video = document.getElementById('webcam');
 const startBtn = document.getElementById('startBtn');
 const stopBtn = document.getElementById('stopBtn');
+const errorMsg = document.getElementById('errorMsg');
 
 let stream = null;
 let intervalId = null;
@@ -10,11 +11,14 @@ startBtn.addEventListener('click', async () => {
     try {
       stream = await navigator.mediaDevices.getUserMedia({ video: true });
       video.srcObject = stream;
+      errorMsg.style.display = 'none'; // Sembunyikan pesan error jika berhasil
     } catch (err) {
-      alert('Tidak bisa mengakses kamera!');
+      errorMsg.textContent = 'Akses kamera ditolak! Harap izinkan agar sistem dapat berjalan.';
+      errorMsg.style.display = 'block';
       return;
     }
   }
+
 
   // Mulai interval screenshot tiap 15 detik
   intervalId = setInterval(captureAndSend, 15000);
