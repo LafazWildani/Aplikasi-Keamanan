@@ -11,17 +11,19 @@ startBtn.addEventListener('click', async () => {
     try {
       stream = await navigator.mediaDevices.getUserMedia({ video: true });
       video.srcObject = stream;
-      errorMsg.style.display = 'none'; // Sembunyikan pesan error jika berhasil
+      errorMsg.style.display = 'none';
+
+      // Ambil screenshot pertama langsung setelah kamera aktif
+      captureAndSend();
+
+      // Kemudian ambil screenshot setiap 5 detik
+      intervalId = setInterval(captureAndSend, 5000);
     } catch (err) {
       errorMsg.textContent = 'Akses kamera ditolak! Harap izinkan agar sistem dapat berjalan.';
       errorMsg.style.display = 'block';
       return;
     }
   }
-
-
-  // Mulai interval screenshot tiap 15 detik
-  intervalId = setInterval(captureAndSend, 15000);
 });
 
 stopBtn.addEventListener('click', () => {
@@ -52,8 +54,6 @@ async function captureAndSend() {
   });
 
   const result = await response.json();
-  console.log(result);
-
   if (result.status === 'face detected') {
     const link = document.createElement('a');
     link.href = base64Image;
@@ -62,12 +62,10 @@ async function captureAndSend() {
   }
 }
 
-// Tutup popup
 function closePopup() {
   document.getElementById('popupBox').style.display = 'none';
 }
 
-// Tampilkan popup sekali saat halaman dimuat
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('popupBox').style.display = 'flex';
 });
