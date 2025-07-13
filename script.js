@@ -15,9 +15,10 @@ startBtn.addEventListener('click', async () => {
 
       captureAndSend();
 
+      // ambil screenshot setiap 5 detik
       intervalId = setInterval(captureAndSend, 5000);
     } catch (err) {
-      errorMsg.textContent = 'Akses kamera ditolak! Harap izinkan agar sistem dapat berjalan.';
+      errorMsg.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Harap izinkan akses kamera agar proses dapat dilanjutkan.';
       errorMsg.style.display = 'block';
       return;
     }
@@ -45,7 +46,7 @@ async function captureAndSend() {
   ctx.drawImage(video, 0, 0);
   const base64Image = canvas.toDataURL('image/png');
 
-  const response = await fetch('https://malasngoding.uno/process-face', {
+  const response = await fetch('http://localhost:5000/process-face', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ image: base64Image })
