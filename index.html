@@ -3,35 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <title>Tes Kamera</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css   ">
 </head>
 <body>
-  <!-- Popup Box -->
-<div id="popupBox" class="popup">
-  <div class="popup-content">
-    <h2>SELAMAT DATANG</h2>
-    <h3>PERHATIAN!</h3>
-    <ul>
-      <li>Sistem ini secara otomatis akan mengambil screenshot dari kamera setiap 5 detik, jika wajah terdeteksi.</li>
-      <li>Klik tombol <b>Start</b> untuk memulai dan <b>Stop</b> untuk menghentikan proses.</li>
-      <li>Pastikan kamu <b>mengizinkan akses kamera dan download multiple files</b> saat diminta browser.</li>
-      <li>Sebaiknya <b>minimize</b> halaman ini jika ingin ditinggal agar tampilan video kamera tidak terlihat mencolok.</li>
-      <li>Gambar akan terunduh otomatis ke folder <b>Downloads</b> laptop Anda.</li>
-      <li>Jika penyimpanan laptop hampir penuh, disarankan untuk mengosongkan sebagian ruang terlebih dahulu.</li>
-      <li>Sistem ini <b>disarankan untuk penggunaan jangka pendek</b>, seperti saat kamu ingin meninggalkan laptop sebentar.</li>
-      <li>Jika ada orang menanyakan kenapa kameranya menyala, cukup jawab sedang mengetes kamera.</li>
-      <li><b>Jangan meninggalkan laptop sendirian di tempat umum tanpa pengawasan untuk menghindari risiko pencurian!.</b></li>
-    </ul>
-    <button onclick="closePopup()">Saya Mengerti</button>
-  </div>
-</div>
 
-  <h1>Ngetes Kamera</h1>
-  <video id="webcam" autoplay playsinline width="640" height="480"></video>
-  <p id="errorMsg" class="error-message" style="display: none;"></p>
-  <div class="buttons">
-    <button id="startBtn">Start</button>
-    <button id="stopBtn">Stop</button>
+  <!-- Popup Selamat Datang -->
+  <div id="popupBox" class="popup">
+    <div class="popup-content">
+      <h2>Selamat Datang!</h2>
+      <p>Sistem ini akan mendeteksi wajah dan menyimpan screenshot secara otomatis setiap 5 detik.</p>
+      <ul>
+        <li>Pastikan izinkan akses kamera dan download multiple files saat diminta browser.</li>
+        <li>Jika wajah terdeteksi, gambar akan terunduh otomatis ke folder <b>Downloads</b>.</li>
+      </ul>
+      <button onclick="closePopup()">Saya Mengerti</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <header>
+      <h1>📷 Ngetes Kamera</h1>
+      <p class="header-p"><strong>Proses ini berjalan otomatis</strong></p>
+    </header>
+
+    <video id="webcam" autoplay playsinline width="640" height="480"></video>
+    
+    <p id="errorMsg" class="error-message" style="display: none;"></p>
+
+    <div class="buttons">
+      <button id="startBtn">Start</button>
+      <button id="stopBtn">Stop</button>
+    </div>
+
+    <div class="instructions">
+      <p><strong>Catatan:</strong> Klik tombol <b>Start</b> untuk memulai dan <b>Stop</b> untuk menghentikan proses.</p>
+    </div>
   </div>
 
   <script src="script.js"></script>
